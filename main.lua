@@ -152,6 +152,9 @@ function love.keypressed(key)
 end
 
 function love.draw()
+	-- FPS Counter
+	love.graphics.print("FPS: " .. love.timer.getFPS(), 10, love.graphics.getHeight() - 30)
+
 	--love.graphics.setColor(0, 0, 0)
 	love.graphics.print("Press space to play/pause music", 10, 10)
 
@@ -164,7 +167,7 @@ function love.draw()
 	if Char.animation.direction == "left" then
 		Char.animation.idle = false
 		Char.animation.attack = false
-		love.graphics.draw(Char.sprite, run[Char.animation.frame], Char.x, Char.y)
+		love.graphics.draw(Char.sprite, run[Char.animation.frame], Char.x, Char.y, 0, -1, 1, QUAD_WIDTH, 0)
 	end
 	if Char.animation.idle == true then
 		Char.animation.attack = false
